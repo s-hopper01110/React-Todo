@@ -2,11 +2,12 @@ import React from 'react';
 
 function TodoForm(props) {
   return (
-    <form>
+    <form onSubmit={props.addNewTodo}>
       
       <input
-        value={props.inputText}
+        value={props.task}
         type="text"
+        name="task"
         placeholder="Goal: Stay Focused! "
         onChange={props.handleChanges}
       />

@@ -34,6 +34,17 @@ handleChanges = e => {
   this.setState({ [e.target.name]: e.target.value })
 }
 
+addNewTodo = e => {
+  e.preventDefault();
+  this.setState({
+    taskList: [
+      ...this.state.taskList,
+        { task: this.state.task }
+    ],
+    task: ''
+  })
+}
+
 
 
 
@@ -42,7 +53,15 @@ handleChanges = e => {
     return (
       <div>
       <TodoList info={this.state.taskList}/>
-      <TodoForm addNewTodo={this.addNewTodo}/>
+      <TodoForm 
+      addNewTodo={this.addNewTodo}
+      handleChanges={this.handleChanges}
+      task={this.state.task}
+      
+      />
+      
+    {/* <Todo/> */}
+
         
       </div>
     );
