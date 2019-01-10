@@ -1,13 +1,33 @@
 
-// import React from 'react';
+import React from 'react';
+import './Todo.css'
 
-// const ThingsToDo = [
+function Todo (props) {
+    const{ toggleCompleted, thing } = props;
 
-//     { task: 'Study', id: 1 , completed: false },
-//     { task: 'Work on Bullet Journal', id: 2 , completed: false },
-//     { task: 'Take dogs a bath', id: 3 , completed: false },
-//     { task: 'Cook Dinner', id: 4 , completed: false },
-  
-//   ]
+    
 
-//   export default ThingsToDo;
+    
+    return (
+
+        <p 
+        
+        className={`thing.completed ? 'completed' : null`}
+        // style={{ textDecoration: props.thing.completed ? 'line-through' : '' }}
+        onClick={ e => toggleCompleted(thing.id)}
+    
+        >
+
+        {/* {props.thing.task} */}
+
+        </p>
+
+        // <div>
+        
+        // {/* {props.thing.task} */}
+        
+        // </div>
+    )
+}
+
+export default Todo;

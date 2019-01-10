@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+
+
 import TodoList from './components/TodoComponents/TodoList';
 import Todo from './components/TodoComponents/Todo';
 import TodoForm from './components/TodoComponents/TodoForm';
@@ -8,11 +11,11 @@ import TodoForm from './components/TodoComponents/TodoForm';
 
 const ThingsToDo = [
 
-  { task: 'Study', id: 1 , completed: false },
-  { task: 'Work on Bullet Journal', id: 2 , completed: false },
-  { task: 'Take dogs a bath', id: 3 , completed: false },
-  { task: 'Cook Dinner', id: 4 , completed: false },
-
+  { task: '', id: 1 , completed: false },
+  { task: '', id: 2 , completed: false },
+  { task: '', id: 3 , completed: false },
+  { task: '', id: 4 , completed: false },
+  
 ]
 
 
@@ -39,31 +42,71 @@ addNewTodo = e => {
   this.setState({
     taskList: [
       ...this.state.taskList,
-        { task: this.state.task }
+        { task: this.state.task,
+        id: Date.now(),
+        completed: false
+      }
     ],
     task: ''
   })
 }
 
 
+toggleCompleted = id => {
+  this.setState({
+    taskList: this.state.taskList.map(thing => {
+      if(thing.id === id) {
+        return {
+          ...thing,
+          completed: !thing.completed
+          }
+        }
+        return thing;
+    })
+  })
+}
+
+
+
+clearCompleted = e => {
+  e.preventDefault();
+  this.setState({
+    taskList: this.state.taskList.filter(todo => !todo.completed)
+  })
+}
 
 
   
   render() {
     return (
+      <div className="listInfo">
+
       <div>
-      <TodoList info={this.state.taskList}/>
-      <TodoForm 
-      addNewTodo={this.addNewTodo}
-      handleChanges={this.handleChanges}
-      task={this.state.task}
+        <h2>JOT!</h2>
+      </div>
+
+
+    <TodoList 
+        info={this.state.taskList}
+        toggleCompleted={this.toggleCompleted}
+    />
+
+      <div className="inputs">
+
+    <TodoForm 
+        task={this.state.task}
+        addNewTodo={this.addNewTodo}
+        handleChanges={this.handleChanges}
+        clearCompleted={this.clearCompleted}
+        
+        
+    />
+      </div>
       
-      />
-      
-    {/* <Todo/> */}
+    <Todo/>
 
         
-      </div>
+      </div> // main div
     );
   }
 }
