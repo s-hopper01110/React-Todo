@@ -74,6 +74,7 @@ button:focus {outline:0;}
 .completed{
    text-decoration-color: greenyellow; 
    text-decoration-line: solid;
+   cursor: pointer;
  
 }
 
