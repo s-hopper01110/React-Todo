@@ -14,7 +14,7 @@ function Todo (props) {
         <p 
         
         className={ 'thing.completed' ? 'completed' : null }
-        style={{ textDecoration: props.lists.completed ? 'line-through' : '' }}
+        style={{ textDecorationLine: props.lists.completed ? 'line-through' : '' }}
         onClick={ e => props.toggleCompleted(props.lists.id)}
     
         >
