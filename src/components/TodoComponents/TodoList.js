@@ -2,6 +2,7 @@
 // feel free to change this component.js into TodoList.js
 
 import React from 'react';
+import Todo from './Todo';
 // import Todo from './components/TodoComponents/Todo';
 
 function TodoList(props) {
@@ -9,7 +10,7 @@ function TodoList(props) {
     return (
     <div>
         {props.info.map(lists => {
-            return <div>{lists.task}</div>
+            return <Todo toggleCompleted={props.toggleCompleted} lists={lists}/>
         })}
 
      </div>

@@ -4,7 +4,6 @@ import React from 'react';
 
 
 import TodoList from './components/TodoComponents/TodoList';
-import Todo from './components/TodoComponents/Todo';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 // ToDo List::
@@ -71,7 +70,7 @@ toggleCompleted = id => {
 clearCompleted = e => {
   e.preventDefault();
   this.setState({
-    taskList: this.state.taskList.filter(todo => !todo.completed)
+    taskList: this.state.taskList.filter(thing => !thing.completed)
   })
 }
 
@@ -98,12 +97,13 @@ clearCompleted = e => {
         addNewTodo={this.addNewTodo}
         handleChanges={this.handleChanges}
         clearCompleted={this.clearCompleted}
+        // isChecked={this.state.isChecked}
         
         
     />
       </div>
       
-    <Todo/>
+    
 
         
       </div> // main div

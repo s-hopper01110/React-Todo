@@ -1,9 +1,10 @@
 
 import React from 'react';
 import './Todo.css'
+// import { list } from 'postcss';
 
 function Todo (props) {
-    const{ toggleCompleted, thing } = props;
+    // const{ toggleCompleted, lists } = props;
 
     
 
@@ -12,21 +13,18 @@ function Todo (props) {
 
         <p 
         
-        className={`thing.completed ? 'completed' : null`}
-        // style={{ textDecoration: props.thing.completed ? 'line-through' : '' }}
-        onClick={ e => toggleCompleted(thing.id)}
+        className={ 'thing.completed' ? 'completed' : null }
+        style={{ textDecoration: props.lists.completed ? 'line-through' : '' }}
+        onClick={ e => props.toggleCompleted(props.lists.id)}
     
         >
-
-        {/* {props.thing.task} */}
+        
+        {props.lists.task}
+         
 
         </p>
 
-        // <div>
         
-        // {/* {props.thing.task} */}
-        
-        // </div>
     )
 }
 

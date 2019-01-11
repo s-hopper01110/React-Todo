@@ -23,7 +23,7 @@ function TodoForm(props) {
       {/* ^main div */}
 
     <button type="add">Track my thought!</button>
-    <button type="clear">Scratch that.</button>
+    <button onClick={props.clearCompleted} type="clear">Scratch that.</button>
 
 
 
